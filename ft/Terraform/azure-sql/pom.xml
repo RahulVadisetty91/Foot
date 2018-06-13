@@ -1,0 +1,163 @@
+<project>
+  <!-- =====================================================================
+       BEGIN: Project Generalities
+       ===================================================================== -->
+  <modelVersion>4.0.0</modelVersion>
+  <name>Platform :: DataWarehouse Terraform Module</name>
+  <groupId>com.footlocker.platform.terraform</groupId>
+  <artifactId>datawarehouse-module</artifactId>
+  <version>develop</version>
+  <!-- =====================================================================
+       END: Project Generalities
+       ===================================================================== -->
+
+  <!-- =====================================================================
+       BEGIN: Project Contributors
+       ===================================================================== -->
+  <developers>
+    <developer>
+      <id>c001609</id>
+      <name>Rahul Vadisetty</name>
+      <email>rahul.vadisetty@footlocker.com</email>
+    </developer>
+    <!-- Rahul to add himself here -->
+  </developers>
+  <!-- =====================================================================
+       END: Project Contributors
+       ===================================================================== -->
+
+  <!-- =====================================================================
+       BEGIN: Artifact Distribution
+       ===================================================================== -->
+  <distributionManagement>
+    <repository>
+      <id>artifactory-releases</id>
+      <name>azu-tartifact.corp.footlocker.net-releases</name>
+      <url>https://azu-tartifact.corp.footlocker.net:443/artifactory/fl-dataplatform-maven-releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>artifactory-snapshots</id>
+      <name>azu-tartifact.corp.footlocker.net-snapshots</name>
+      <url>https://azu-tartifact.corp.footlocker.net:443/artifactory/fl-dataplatform-maven-snapshots</url>
+      <uniqueVersion>true</uniqueVersion>
+    </snapshotRepository>
+  </distributionManagement>
+  <!-- =====================================================================
+       END: Artifact Distribution
+       ===================================================================== -->
+
+  <!-- =====================================================================
+       BEGIN: Dependency Repositories
+       ===================================================================== -->
+  <repositories>
+    <repository>
+      <id>local-snapshots</id>
+      <url>file://${user.home}/.m2/repository/</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </repository>
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>fl-dataplatform-maven-central</name>
+      <url>https://azu-tartifact.corp.footlocker.net:443/artifactory/fl-dataplatform-maven-central</url>
+    </repository>
+    <repository>
+      <id>snapshots</id>
+      <name>fl-dataplatform-maven-snapshots</name>
+      <url>https://azu-tartifact.corp.footlocker.net:443/artifactory/fl-dataplatform-maven-snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <!-- =====================================================================
+       END: Dependency Repositories
+       ===================================================================== -->
+
+  <!-- =====================================================================
+       BEGIN: Build Plugins
+       ===================================================================== -->
+  <pluginRepositories>
+    <pluginRepository>
+      <id>central</id>
+      <name>fl-dataplatform-maven-central</name>
+      <url>https://azu-tartifact.corp.footlocker.net:443/artifactory/fl-dataplatform-maven-central</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+    </pluginRepository>
+  </pluginRepositories>
+  <!-- =====================================================================
+       END: Build Plugins
+       ===================================================================== -->
+
+  <!-- =====================================================================
+       BEGIN: Build Configuration
+       ===================================================================== -->
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <descriptors>
+            <descriptor>src/assembly/dep.xml</descriptor>
+          </descriptors>
+          <tarLongFileMode>posix</tarLongFileMode>
+          <appendAssemblyId>false</appendAssemblyId>
+        </configuration>
+        <executions>
+          <execution>
+            <id>create-archive</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <!-- =====================================================================
+       END: Build Configuration
+       ===================================================================== -->
+
+  <!-- =====================================================================
+       BEGIN: Build Profiles
+       ===================================================================== -->
+  <!-- =====================================================================
+       END: Build Profiles
+       ===================================================================== -->
+
+  <!-- =====================================================================
+       BEGIN: Artifact Configuration
+       ===================================================================== -->
+  <!-- =====================================================================
+       END: Artifact Configuration
+       ===================================================================== -->
+
+  <!-- =====================================================================
+       BEGIN: Build Reporting and Statistics
+       ===================================================================== -->
+  <!-- =====================================================================
+       END: Build Reporting and Statistics
+       ===================================================================== -->
+
+  <!-- =====================================================================
+       BEGIN: Project Dependencies
+       ===================================================================== -->
+  <!-- =====================================================================
+       END: Project Dependencies
+       ===================================================================== -->
+</project>
